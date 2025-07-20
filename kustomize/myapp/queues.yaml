@@ -1,0 +1,25 @@
+apiVersion: sqs.aws.crossplane.io/v1beta1
+kind: Queue
+metadata:
+  name: test-queue
+spec:
+  forProvider:
+    delaySeconds: 4
+    redrivePolicy:
+      deadLetterTargetArnRef:
+        name: test-queue-dead-letter
+      maxReceiveCount: 1
+    region: us-east-1
+  providerConfigRef:
+    name: aws-provider-localstack
+---
+apiVersion: sqs.aws.crossplane.io/v1beta1
+kind: Queue
+metadata:
+  name: test-queue-dead-letter
+spec:
+  forProvider:
+    delaySeconds: 4
+    region: us-east-1
+  providerConfigRef:
+    name: aws-provider-localstack

@@ -1,0 +1,15 @@
+apiVersion: s3.aws.crossplane.io/v1beta1
+kind: Bucket
+metadata:
+  name: my-bucket
+spec:
+  deletionPolicy: Delete
+  forProvider:
+    locationConstraint: eu-central-1
+    objectOwnership: BucketOwnerEnforced
+    paymentConfiguration:
+      payer: BucketOwner
+    versioningConfiguration:
+      status: Enabled
+  providerConfigRef:
+    name: aws-provider-localstack
