@@ -70,12 +70,28 @@ kubectl apply -f kustomize/myapp/provider-config.yaml
 ```
 ## Create S3 bucket / SQS queues with Crossplane
 
-- Create a S3 Bucket
+- Create a S3 Bucket and check
 ```
 kubectl apply -f kustomize/myapp/bucket.yaml
+aws s3 ls --profile localstack
 ```
-- Create SQS Queues
+- Create SQS Queues and check
 ```
 kubectl apply -f kustomize/myapp/queues.yaml
+aws sqs list-queues --profile localstack --region us-east-1
 ```
 
+## Uninstall
+- Delete App resources
+```
+ kubectl delete -f kustomize/myapp
+```
+- Delete provider AWS
+```
+ kubectl delete -f kustomize/crossplane
+```
+- Delete Core Crossplane
+```
+helm uninstall -n crossplane-system crossplane
+kubectl delete namespace crossplane-system
+```
