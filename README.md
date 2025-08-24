@@ -94,4 +94,5 @@ aws sqs list-queues --profile localstack --region us-east-1
 ```
 helm uninstall -n crossplane-system crossplane
 kubectl delete namespace crossplane-system
+kubectl get crds -oname | grep 'crossplane.io' | xargs kubectl delete
 ```
