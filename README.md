@@ -73,7 +73,14 @@ kubectl apply -f kustomize/myapp/provider-config.yaml
 - Create a S3 Bucket and check
 ```
 kubectl apply -f kustomize/myapp/bucket.yaml
-aws s3 ls --profile localstack
+export AWS_PROFILE=localstack
+aws s3 ls
+aws s3api get-bucket-versioning --bucket my-bucket
+aws s3api put-bucket-versioning --bucket my-bucket --versioning-configuration 'Status=Suspended'
+
+aws s3api get-bucket-tagging --bucket my-bucket | jq
+aws s3api put-bucket-tagging --bucket my-bucket --tagging "TagSet=[{Key='Owner',Value='Tremplin BDX'}]"
+
 ```
 - Create SQS Queues and check
 ```
