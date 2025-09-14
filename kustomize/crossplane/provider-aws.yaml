@@ -5,7 +5,7 @@
 #   name: provider-aws
 #   namespace: crossplane-system
 # spec:
-#   package: xpkg.crossplane.io/crossplane-contrib/provider-aws:v0.52.3
+#   package: xpkg.crossplane.io/crossplane-contrib/provider-aws:v0.54.2
 ---
 ## For Demo time
 apiVersion: pkg.crossplane.io/v1
@@ -14,7 +14,7 @@ metadata:
   name: provider-aws
   namespace: crossplane-system
 spec:
-  package: xpkg.crossplane.io/crossplane-contrib/provider-aws:v0.52.3
+  package: xpkg.crossplane.io/crossplane-contrib/provider-aws:v0.54.2
   runtimeConfigRef:
     apiVersion: pkg.crossplane.io/v1beta1
     kind: DeploymentRuntimeConfig
@@ -35,3 +35,4 @@ spec:
             args: 
             - --debug
             - --poll=30s
+            - --enable-management-policies
