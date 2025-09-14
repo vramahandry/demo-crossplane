@@ -1,8 +1,12 @@
 apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
-  name: my-bucket
+  name: imported
 spec:
+  # https://docs.crossplane.io/latest/managed-resources/managed-resources/#managementpolicies
+  # managementPolicies: ["Create", "Delete", "Update", "Observe", "LateInitialize"]
+  managementPolicies: ["Observe"]
+  # managementPolicies: ["*"]
   forProvider:
     locationConstraint: eu-central-1
     versioningConfiguration:
@@ -14,4 +18,3 @@ spec:
   providerConfigRef:
     name: aws-provider-localstack
 
-##https://marketplace.upbound.io/providers/crossplane-contrib/provider-aws/v0.54.2/resources/s3.aws.crossplane.io/Bucket/v1beta1
