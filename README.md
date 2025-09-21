@@ -1,5 +1,9 @@
 # demo-crossplane
 
+## Documentation Crossplane
+[Get started](https://docs.crossplane.io/latest/get-started/install/)
+[Provider AWS Contrib](https://marketplace.upbound.io/providers/crossplane-contrib/provider-aws/v0.54.2)
+
 ## Prerequesities
 
 - Docker
