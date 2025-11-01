@@ -18,7 +18,7 @@ echo "#### Check tags on the bucket ####"
 aws s3api get-bucket-tagging --bucket my-bucket | jq
 
 echo "### Change tags directly through AWS API"
-aws s3api put-bucket-tagging --bucket my-bucket --tagging "TagSet=[{Key='Owner',Value='Tremplin BDX'}]"
+aws s3api put-bucket-tagging --bucket my-bucket --tagging "TagSet=[{Key='Owner',Value='BDXIO'}]"
  
 for i in {1..7}
 do

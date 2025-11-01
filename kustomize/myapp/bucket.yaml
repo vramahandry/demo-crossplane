@@ -1,3 +1,4 @@
+##https://marketplace.upbound.io/providers/crossplane-contrib/provider-aws/v0.54.2/resources/s3.aws.crossplane.io/Bucket/v1beta1
 apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
@@ -13,5 +14,3 @@ spec:
           value: "Backend Team"
   providerConfigRef:
     name: aws-provider-localstack
-
-##https://marketplace.upbound.io/providers/crossplane-contrib/provider-aws/v0.54.2/resources/s3.aws.crossplane.io/Bucket/v1beta1

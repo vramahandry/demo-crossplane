@@ -4,7 +4,7 @@ metadata:
   name: imported
 spec:
   # https://docs.crossplane.io/latest/managed-resources/managed-resources/#managementpolicies
-  managementPolicies: ["Observe"]
+  managementPolicies: ["Create", "Delete", "Update", "Observe", "LateInitialize"]
   forProvider:
     locationConstraint: eu-central-1
     versioningConfiguration:
